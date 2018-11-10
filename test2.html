@@ -19,7 +19,7 @@
 		<label>Name
 		<input class="name" type="text"  placeholder="Enter your name:" required/></label><span class="emsg hidden">Please Enter a Valid Name</span>
 		<br>
-		<input type="submit" value="Submit"/>
+		<input type="submit" value="Submit" id="submit" />
 	</form>
 	<!-- Javascript -->
 	<script src="node_modules/jquery/dist/jquery.min.js"></script>
@@ -29,15 +29,13 @@
 	    var $regexname=/^([a-z]{5}_[A-Z]{2})$/;
 	    var $regex=/^([a-z]{5}\.[A-Z]{2})$/;
 	    $('.name').on('keypress keydown keyup',function(){
-       if (!$(this).val().match($regexname) && !$(this).val().match($regex)) {
-        // there is a mismatch, hence show the error message
-           $('.emsg').removeClass('hidden');
-           $('.emsg').show();
+       if (!$(this).val().match($regexname) && !$(this).val().match($regex)) 
+       {
+      	
        }
        else{
-            // else, do not display message
-            $('.emsg').addClass('hidden');
-           }
+            
+       }
 	     });
 		});
 	</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<style>
+		.emsg{
+	    color: red;
+	}
+	.hidden {
+	     visibility:hidden;
+	}
+	</style>
+</head>
+<body>
+	<form>
+		<label>Name
+		<input class="name" type="text"  placeholder="Enter your name:" required/></label><span class="emsg hidden">Please Enter a Valid Name</span>
+		<br>
+		<input type="submit" value="Submit"/>
+	</form>
+	<!-- Javascript -->
+	<script src="node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+	    var $regexname=/^([a-z]{5}_[A-Z]{2})$/;
+	    var $regex=/^([a-z]{5}\.[A-Z]{2})$/;
+	    $('.name').on('keypress keydown keyup',function(){
+       if (!$(this).val().match($regexname) && !$(this).val().match($regex)) {
+        // there is a mismatch, hence show the error message
+           $('.emsg').removeClass('hidden');
+           $('.emsg').show();
+       }
+       else{
+            // else, do not display message
+            $('.emsg').addClass('hidden');
+           }
+	     });
+		});
+	</script>
+</body>
+</html>
